@@ -1,0 +1,16 @@
+- Header: Header.jsx
+- Nav: Home.jsx
+
+Hướng dẫn cách chạy suộc code: 
+Cần có: MongoDB Compass
+
+- File BE: 
+B1:  cd .\milkstore-server\
+B2: npm i  (nếu clone về chưa có). Nếu có rồi thì bỏ qua bước này
+B3: npm start 
+
+- File FE: 
+B1: cd .\BeBe-MilkStore\
+B2: npm i  (nếu clone về chưa có). Nếu có rồi thì bỏ qua bước này
+B3: npm run dev
+B4: Click vào đường link ở phần terminal trả về (sẽ hiện https://localhost:5173/)
