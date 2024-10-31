@@ -111,7 +111,7 @@ function App() {
               <>
                 <Header />
                 <ProductDetail />
-                <Footer/>
+                <Footer />
               </>
             }
           />

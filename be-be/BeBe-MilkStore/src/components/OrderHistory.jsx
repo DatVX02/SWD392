@@ -72,8 +72,8 @@ const OrderHistory = () => {
         { text: "Pending", value: "Pending" },
         { text: "Processing", value: "Processing" },
         { text: "Cancelled", value: "Cancelled" },
-        { text: "Delivered", value: "Delivered" },
-        { text: "Delivering", value: "Delivering" },
+        // { text: "Delivered", value: "Delivered" },
+        // { text: "Delivering", value: "Delivering" },
       ],
       onFilter: (value, record) => record.status.includes(value),
       render: (status) => (

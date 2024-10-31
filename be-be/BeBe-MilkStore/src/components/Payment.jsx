@@ -216,11 +216,11 @@ export default function Payment() {
 
   return (
     <>
-      <div className="bg-blue-800 p-4 flex justify-between items-center">
+      <div className="bg-[#2DC275] p-4 flex justify-between items-center">
         <div className="flex items-center">
           <div className="p-2 rounded-full w-40">
             <Link to="/">
-              <img src="./public/assets/images/logo.png" alt="Logo" />
+              <img src="./public/assets/images/image.jpg" alt="Logo" className="rounded-3xl" />
             </Link>
           </div>
         </div>
@@ -339,7 +339,7 @@ export default function Payment() {
                       <p>
                         {item.productId.regular_price.toLocaleString("vi-VN")}đ
                       </p>
-                      <p>x{item.quantity}</p>
+                      <p className="float-end">x{item.quantity}</p>
                     </div>
                   </div>
                 </div>
@@ -350,7 +350,7 @@ export default function Payment() {
                   <span>{getTotalPrice().toLocaleString("vi-VN")}đ</span>
                 </div>
                 <div className="flex justify-between mb-2">
-                  <span>Phí vận chuyển</span>
+                  <span>Voucher</span>
                   <span>0đ</span>
                 </div>
                 <div className="flex justify-between font-bold">

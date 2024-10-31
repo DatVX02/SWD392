@@ -168,15 +168,15 @@ export default function ListProduct() {
   return (
     <>
       <div className="flex flex-col items-center bg-gray-100 p-4 ">
-        <div className="bg-white p-4 rounded-t-lg border-b w-11/12">
+        {/* <div className="bg-white p-4 rounded-t-lg border-b w-11/12">
           <h1 className="text-xl font-bold">Mẹ bầu và sau sinh</h1>
           <p className="mt-2 text-gray-600">
             Kidsplaza cung cấp đầy đủ các sản phẩm cần thiết cho mẹ bầu và sau
             sinh như sữa bầu, quần áo bầu, vitamin, máy hút sữa...giúp việc mang
             thai và nuôi con trở nên đơn giản hơn.
           </p>
-        </div>
-        <div className="bg-white p-4 rounded-b-lg shadow-md w-11/12">
+        </div> */}
+        {/* <div className="bg-white p-4 rounded-b-lg shadow-md w-11/12">
           <img
             src="https://cdn-v2.kidsplaza.vn/media/catalog/category/banner_danh_m_c_sap_sinh_t5_1.png"
             alt="Banner"
@@ -224,15 +224,15 @@ export default function ListProduct() {
               <p className="mt-2">Túi trữ sữa</p>
             </div>
           </div>
-        </div>
-        <div className="bg-white-100 my-10 w-11/12">
+        </div> */}
+        {/* <div className="bg-white-100 my-10 w-11/12">
           <div className="bg-white p-4 rounded-t-lg flex justify-between items-center border-b">
             <h1 className="text-2xl font-bold">SẢN PHẨM BÁN CHẠY</h1>
           </div>
           <div className="bg-white p-4 rounded-b-lg shadow-md">
             {renderProducts(productsHot)}
           </div>
-        </div>
+        </div> */}
         <div className="bg-gray-100 flex w-11/12">
           <div className="w-1/4 bg-white p-4 rounded-lg shadow-md">
             <h2 className="text-2xl font-bold mb-4">Bộ lọc tìm kiếm</h2>

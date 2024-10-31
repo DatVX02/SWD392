@@ -169,15 +169,28 @@ export default function Cart() {
     }
   };
 
-  const getTotalPrice = () => {
-    const total = cartItems.reduce(
+  // const getTotalPrice = () => {
+  //   const total = cartItems.reduce(
+  //     (total, item) => total + item.productId.regular_price * item.quantity,
+  //     0
+  //   );
+  //   return selectedVoucher
+  //     ? total * (1 - selectedVoucher.voucher_discount / 100)
+  //     : total;
+  // };
+
+  const getSubtotal = () => {
+    return cartItems.reduce(
       (total, item) => total + item.productId.regular_price * item.quantity,
       0
     );
-    return selectedVoucher
-      ? total * (1 - selectedVoucher.voucher_discount / 100)
-      : total;
   };
+  
+  const getTotalPrice = () => {
+    const subtotal = getSubtotal();
+    return selectedVoucher ? subtotal * (1 - selectedVoucher.voucher_discount / 100) : subtotal;
+  };
+  
   return (
     <div className="flex flex-col items-center w-11/12 mx-auto my-10">
       <div className="bg-white-100 my-10 w-11/12 flex space-x-4">
@@ -186,7 +199,7 @@ export default function Cart() {
           {cartItems.map((item) => (
             <div key={item.id} className="flex justify-between mb-4">
               <div className="flex flex-col">
-                <span className="font-bold text-blue-500">Sản phẩm</span>
+                <span className="font-bold text-blue-500 mb-4 text-center">Sản phẩm</span>
                 <div className="flex">
                   <img
                     src={`http://localhost:5000/${item.productId?.image}`}
@@ -199,34 +212,37 @@ export default function Cart() {
                 </div>
               </div>
               <div className="flex flex-col">
-                <span className="font-bold text-blue-500">Giá</span>
+                <span className="font-bold text-blue-500 mb-4 text-center">Giá</span>
                 <p className="text-red-500 font-bold mr-4">
-                  {item.productId.regular_price} VND
+                  {/* {item.productId.regular_price} VND */}
+                  {(
+                    item.productId.regular_price
+                  ).toLocaleString("vi-VN")}{" "}VND
                 </p>
               </div>
-              <div className="flex flex-col">
-                <span className="font-bold text-blue-500">Số lượng</span>
+              <div className="flex flex-col ">
+                <span className="font-bold text-blue-500 mb-4 text-center">Số lượng</span>
                 <InputNumber
                   min={1}
                   value={item.quantity}
                   onChange={(value) =>
                     handleQuantityChange(value, item.productId._id)
                   }
-                  className="mr-4"
+                  className="mr-4 text-center"
                 />
               </div>
               <div className="flex flex-col">
-                <span className="font-bold text-blue-500">Tạm tính</span>
+                <span className="font-bold text-blue-500 mb-4 text-center">Thành tiền</span>
                 <p className="text-red-500 font-bold mr-4">
                   {(
                     item.productId.regular_price * item.quantity
-                  ).toLocaleString("vi-VN")}{" "}
-                  VND
+                  ).toLocaleString("vi-VN")}{" "}VND
                 </p>
               </div>
               <Button
                 type="link"
                 onClick={() => handleRemoveFromCart(item.productId._id)}
+                className="mt-9"
               >
                 Xóa
               </Button>
@@ -262,11 +278,15 @@ export default function Cart() {
             <div className="flex flex-col space-y-4">
               <div className="flex justify-between">
                 <span>Tổng giá sản phẩm</span>
-                <span>{getTotalPrice().toLocaleString("vi-VN")}đ</span>
+                <span>{getSubtotal().toLocaleString("vi-VN")}đ</span>
               </div>
               <div className="flex justify-between">
-                <span>Phí vận chuyển</span>
-                <span>0đ</span>
+                <span>Voucher</span>
+                <span>
+                  {selectedVoucher
+                    ? `${(getSubtotal() * (selectedVoucher.voucher_discount / 100)).toLocaleString("vi-VN")}đ`
+                    : "0đ"}
+                </span>
               </div>
               <div className="flex justify-between">
                 <span>Tạm tính</span>
