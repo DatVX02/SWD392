@@ -204,16 +204,27 @@ export default function Payment() {
     window.location.href = "/";
   };
 
+  // const getTotalPrice = () => {
+  //   const total = cartItems.reduce(
+  //     (total, item) => total + item.productId.regular_price * item.quantity,
+  //     0
+  //   );
+  //   return selectedVoucher
+  //     ? total * (1 - selectedVoucher.voucher_discount / 100)
+  //     : total;
+  // };
+
   const getTotalPrice = () => {
-    const total = cartItems.reduce(
+    const subtotal = getSubtotal();
+    return selectedVoucher ? subtotal * (1 - selectedVoucher.voucher_discount / 100) : subtotal;
+  };
+
+  const getSubtotal = () => {
+    return cartItems.reduce(
       (total, item) => total + item.productId.regular_price * item.quantity,
       0
     );
-    return selectedVoucher
-      ? total * (1 - selectedVoucher.voucher_discount / 100)
-      : total;
   };
-
   return (
     <>
       <div className="bg-[#2DC275] p-4 flex justify-between items-center">
@@ -226,13 +237,13 @@ export default function Payment() {
         </div>
         <div className="flex-grow mx-4">
           <Box sx={{ width: "100%" }}>
-            <Stepper activeStep={currentStep} alternativeLabel>
+            {/* <Stepper activeStep={currentStep} alternativeLabel>
               {steps.map((label) => (
                 <Step key={label}>
                   <StepLabel>{label}</StepLabel>
                 </Step>
               ))}
-            </Stepper>
+            </Stepper> */}
           </Box>
         </div>
       </div>
@@ -339,26 +350,30 @@ export default function Payment() {
                       <p>
                         {item.productId.regular_price.toLocaleString("vi-VN")}đ
                       </p>
-                      <p className="float-end">x{item.quantity}</p>
+                      <p>x{item.quantity}</p>
                     </div>
                   </div>
                 </div>
               ))}
               <div className="border-t pt-4">
-                <div className="flex justify-between mb-2">
-                  <span>Tổng giá sản phẩm</span>
-                  <span>{getTotalPrice().toLocaleString("vi-VN")}đ</span>
-                </div>
-                <div className="flex justify-between mb-2">
-                  <span>Voucher</span>
-                  <span>0đ</span>
-                </div>
-                <div className="flex justify-between font-bold">
-                  <span>Tạm tính</span>
-                  <span className="text-red-500">
-                    {getTotalPrice().toLocaleString("vi-VN")}đ
-                  </span>
-                </div>
+              <div className="flex justify-between">
+                <span>Tổng giá sản phẩm</span>
+                <span>{getSubtotal().toLocaleString("vi-VN")}đ</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Voucher</span>
+                <span>
+                  {selectedVoucher
+                    ? `${(getSubtotal() * (selectedVoucher.voucher_discount / 100)).toLocaleString("vi-VN")}đ`
+                    : "0đ"}
+                </span>
+              </div>
+              <div className="flex justify-between">
+                <span>Tạm tính</span>
+                <span className="text-red-500 font-bold">
+                  {getTotalPrice().toLocaleString("vi-VN")}đ
+                </span>
+              </div>
               </div>
             </Card>
           </div>
@@ -380,6 +395,7 @@ export default function Payment() {
                     <div className="flex flex-col">
                       <Radio value="standard">Tiêu chuẩn </Radio>
                       <Radio value="express">Nhanh</Radio>
+                      <Radio value="premium">Nhận vé tại sự kiện</Radio>
                     </div>
                   </Radio.Group>
                 </Form.Item>
@@ -403,13 +419,13 @@ export default function Payment() {
                 <Form.Item>
                   <Input.TextArea placeholder="Ghi chú đơn hàng" />
                 </Form.Item>
-                <Form.Item
+                {/* <Form.Item
                   name="confirm"
                   valuePropName="checked"
                   className="m-0"
                 >
                   <Checkbox>Không cần gọi xác nhận đặt hàng</Checkbox>
-                </Form.Item>
+                </Form.Item> */}
                 <Form.Item
                   className="m-0"
                   name="terms"
@@ -425,17 +441,18 @@ export default function Payment() {
                     },
                   ]}
                 >
-                  <Checkbox>Tôi đồng ý với các điều khoản của BeBe.vn</Checkbox>
+                  <Radio>Tôi đồng ý với các điều khoản</Radio>
                 </Form.Item>
-                <Form.Item name="privacy" valuePropName="checked">
+                {/* <Form.Item name="privacy" valuePropName="checked">
                   <Checkbox>
                     Kids Plaza cam kết bảo mật thông tin khách hàng
                   </Checkbox>
-                </Form.Item>
+                </Form.Item> */}
                 <Button
                   className="w-full h-12"
                   type="primary"
                   htmlType="submit"
+                  onFinish={handleFormSubmit}
                 >
                   Đặt hàng
                 </Button>
