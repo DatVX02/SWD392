@@ -1,4 +1,4 @@
-Cách chạy:
+#Cách chạy:
 
 - File Backend (milkstore-server):
 + B1: cd .\milkstore-server\
@@ -11,7 +11,7 @@ Cách chạy:
 + B3: npm run dev
 Chạy được chương trình tải nodejs. Link tải: https://nodejs.org/en
 
-Product.json:
+#Product.json:
 
 [{
   "_id": {
