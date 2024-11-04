@@ -212,7 +212,7 @@ export default function Cart() {
                 </div>
               </div>
               <div className="flex flex-col">
-                <span className="font-bold text-blue-500 mb-4 text-center">Giá</span>
+                <span className="font-bold text-blue-500 mb-5 text-center">Giá</span>
                 <p className="text-red-500 font-bold mr-4">
                   {/* {item.productId.regular_price} VND */}
                   {(
@@ -232,7 +232,7 @@ export default function Cart() {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="font-bold text-blue-500 mb-4 text-center">Thành tiền</span>
+                <span className="font-bold text-blue-500 mb-5 text-center">Thành tiền</span>
                 <p className="text-red-500 font-bold mr-4">
                   {(
                     item.productId.regular_price * item.quantity

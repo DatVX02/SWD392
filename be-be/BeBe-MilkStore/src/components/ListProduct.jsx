@@ -51,18 +51,18 @@ export default function ListProduct() {
   const toggleSizeFilter = () => setShowSizeFilter(!showSizeFilter);
   const toggleWeightFilter = () => setShowWeightFilter(!showWeightFilter);
 
-  const origin = [
-    { name: "Ba Lan", value: "Ba Lan" },
-    { name: "Hàn Quốc", value: "Hàn Quốc" },
-    { name: "Nam Phi ", value: "Nam Phi" },
-    { name: "Nhật Bản", value: "Nhật Bản" },
-    { name: "Singapore ", value: "Singapore" },
-    { name: "Thái Lan ", value: "Thái Lan" },
-    { name: "Thụy Sĩ", value: "Thụy Sĩ" },
-    { name: "Trung Quốc ", value: "Trung Quốc" },
-    { name: "Úc", value: "Úc" },
-    { name: "Việt Nam ", value: "Việt Nam" },
-  ];
+  // const origin = [
+  //   { name: "Ba Lan", value: "Ba Lan" },
+  //   { name: "Hàn Quốc", value: "Hàn Quốc" },
+  //   { name: "Nam Phi ", value: "Nam Phi" },
+  //   { name: "Nhật Bản", value: "Nhật Bản" },
+  //   { name: "Singapore ", value: "Singapore" },
+  //   { name: "Thái Lan ", value: "Thái Lan" },
+  //   { name: "Thụy Sĩ", value: "Thụy Sĩ" },
+  //   { name: "Trung Quốc ", value: "Trung Quốc" },
+  //   { name: "Úc", value: "Úc" },
+  //   { name: "Việt Nam ", value: "Việt Nam" },
+  // ];
 
   const branch = [
     { name: "Vieton", value: "Vieton" },
@@ -81,34 +81,34 @@ export default function ListProduct() {
     // { name: "3Y+", value: "3Y+" },
   ];
 
-  const size = [
-    { name: "S38", value: "S38" },
-    { name: "S40", value: "S40" },
-    { name: "S42", value: "S42" },
-    { name: "S", value: "S" },
-    { name: "M", value: "M" },
-    { name: "L", value: "L" },
-    { name: "XL", value: "XL" },
-    { name: "XXL", value: "XXL" },
-  ];
+  // const size = [
+  //   { name: "S38", value: "S38" },
+  //   { name: "S40", value: "S40" },
+  //   { name: "S42", value: "S42" },
+  //   { name: "S", value: "S" },
+  //   { name: "M", value: "M" },
+  //   { name: "L", value: "L" },
+  //   { name: "XL", value: "XL" },
+  //   { name: "XXL", value: "XXL" },
+  // ];
 
-  const weight = [
-    { name: "7g", value: "7g" },
-    { name: "20g", value: "20g" },
-    { name: "36g", value: "36g" },
-    { name: "100g", value: "100g" },
-    { name: "180g", value: "180g" },
-    { name: "216g", value: "216g" },
-    { name: "250g", value: "250g" },
-    { name: "350g", value: "350g" },
-    { name: "400g", value: "400g" },
-    { name: "450g", value: "450g" },
-    { name: "500g", value: "500g" },
-    { name: "800g", value: "800g" },
-    { name: "830g", value: "830g" },
-    { name: "900g", value: "900g" },
-    { name: "3kg", value: "3kg" },
-  ];
+  // const weight = [
+  //   { name: "7g", value: "7g" },
+  //   { name: "20g", value: "20g" },
+  //   { name: "36g", value: "36g" },
+  //   { name: "100g", value: "100g" },
+  //   { name: "180g", value: "180g" },
+  //   { name: "216g", value: "216g" },
+  //   { name: "250g", value: "250g" },
+  //   { name: "350g", value: "350g" },
+  //   { name: "400g", value: "400g" },
+  //   { name: "450g", value: "450g" },
+  //   { name: "500g", value: "500g" },
+  //   { name: "800g", value: "800g" },
+  //   { name: "830g", value: "830g" },
+  //   { name: "900g", value: "900g" },
+  //   { name: "3kg", value: "3kg" },
+  // ];
 
   useEffect(() => {
     fetch("http://localhost:5000/api/products")
