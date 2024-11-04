@@ -81,7 +81,7 @@ function App() {
               <>
                 <Header />
                 <Login />
-                <Footer />
+                {/* <Footer /> */}
               </>
             }
           />
@@ -101,7 +101,7 @@ function App() {
               <>
                 <Header />
                 <Register />
-                <Footer />
+                {/* <Footer /> */}
               </>
             }
           />

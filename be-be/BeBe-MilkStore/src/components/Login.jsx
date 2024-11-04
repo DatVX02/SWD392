@@ -54,14 +54,14 @@ export default function Login() {
 
   return (
     <div className="px-20 my-10 bg-white">
-      <div className="flex justify-center items-center">
+      {/* <div className="flex justify-center items-center">
         <img
           className="absolute z-0 top-[180px]"
           src="./public/assets/images/image 83.png"
           alt="login"
         />
-      </div>
-      <div className="flex justify-center items-center h-screen bg-gray-100 ">
+      </div> */}
+      <div className="flex justify-center items-center h-lg p-40 bg-gray-100 ">
         <div className="bg-white rounded-lg shadow-lg w-1/3 z-10">
           <div className="flex">
             <div className="w-1/2 text-center py-6 bg-yellow-400 rounded-s-md">
@@ -106,25 +106,25 @@ export default function Login() {
             >
               ĐĂNG NHẬP
             </Button>
-            <div className="flex items-center my-4">
+            {/* <div className="flex items-center my-4">
               <div className="flex-grow border-t border-gray-300"></div>
               <span className="mx-4 text-gray-500">Hoặc đăng nhập bằng</span>
               <div className="flex-grow border-t border-gray-300"></div>
-            </div>
-            <Button
+            </div> */}
+            {/* <Button
               type="primary"
               className="w-full bg-green-500 text-white font-bold py-2 rounded mb-10"
               size="large"
             >
               OTP/SMS
-            </Button>
-            <Button
+            </Button> */}
+            {/* <Button
               type="primary"
               className="w-full bg-blue-700 text-white font-bold py-2 rounded"
               size="large"
             >
               FACEBOOK
-            </Button>
+            </Button> */}
           </div>
         </div>
       </div>

@@ -73,7 +73,7 @@ export default function OrderDetails() {
     key: index.toString(),
     productName: item.productId.name,
     quantity: item.quantity,
-    total: `${item.productId.regular_price * item.quantity} VND`,
+    total: `${item.productId.regular_price * item.quantity}VND`,
   }));
 
   let voucherInfo = null;

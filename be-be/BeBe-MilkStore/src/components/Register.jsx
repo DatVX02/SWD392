@@ -64,14 +64,14 @@ export default function Register() {
 
   return (
     <div className="px-20 my-10 bg-white">
-      <div className="flex justify-center items-center">
-        <img
-          className="absolute z-0 top-[180px]"
-          src="./public/assets/images/image 83.png"
-          alt="login"
-        />
-      </div>
-      <div className="flex justify-center items-center h-screen bg-gray-100 mt-20">
+        {/* <div className="flex justify-center items-center">
+          <img
+            className="absolute z-0 top-[180px]"
+            src="./public/assets/images/image 83.png"
+            alt="login"
+          />
+        </div> */}
+      <div className="flex justify-center items-center p-16 bg-gray-100 mt-20">
         <div className="bg-white rounded-lg shadow-lg w-1/3 z-10">
           <div className="flex">
             <Link
@@ -142,7 +142,7 @@ export default function Register() {
             >
               ĐĂNG KÝ
             </Button>
-            <div className="flex items-center my-4 w-full">
+            {/* <div className="flex items-center my-4 w-full">
               <div className="flex-grow border-t border-gray-300"></div>
               <span className="mx-4 text-gray-500">Hoặc đăng nhập bằng</span>
               <div className="flex-grow border-t border-gray-300"></div>
@@ -160,7 +160,7 @@ export default function Register() {
               size="large"
             >
               FACEBOOK
-            </Button>
+            </Button> */}
           </div>
         </div>
       </div>
