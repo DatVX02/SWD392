@@ -273,7 +273,7 @@ export default function Payment() {
           <div className="w-full md:w-1/2 p-4">
             <Card className="shadow-md">
               <h2 className="text-xl font-bold mb-4 text-blue-500">
-                Địa chỉ giao hàng
+                Thanh toán
               </h2>
               <Form form={form} layout="vertical" onFinish={handleFormSubmit}>
                 <Form.Item
@@ -409,9 +409,9 @@ export default function Payment() {
                     value={paymentMethod}
                   >
                     <div className="flex flex-col">
-                      <Radio value="cod">
+                      {/* <Radio value="cod">
                         Thanh toán tiền mặt khi nhận hàng
-                      </Radio>
+                      </Radio> */}
                       <Radio value="vnpay">VNPAY</Radio>
                     </div>
                   </Radio.Group>

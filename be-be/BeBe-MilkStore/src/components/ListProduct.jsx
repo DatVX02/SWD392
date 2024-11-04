@@ -65,29 +65,20 @@ export default function ListProduct() {
   ];
 
   const branch = [
-    { name: "Degrees", value: "Degrees" },
-    { name: "Abbott", value: "Abbott" },
-    { name: "Anpaso", value: "Anpaso" },
-    { name: "Bio-Oil", value: "Bio-Oil" },
-    { name: "Fatz baby", value: "Fatz baby" },
-    { name: "KidsPlaza", value: "KidsPlaza" },
-    { name: "Kumanoyushi", value: "Kumanoyushi" },
-    { name: "Mamago", value: "Mamago" },
-    { name: "Medela", value: "Medela" },
-    { name: "Morinaga", value: "Morinaga" },
-    { name: "Sunmate", value: "Sunmate" },
-    { name: "Unimom", value: "Unimom" },
-    { name: "SABINA", value: "SABINA" },
+    { name: "Vieton", value: "Vieton" },
+    { name: "Yeah1", value: "Yeah1" },
+    { name: "Vũ Offical", value: "VuOffical" },
+    { name: "Mây Lang Thang", value: "Mây Lang Thang" },
   ];
 
   const age = [
-    { name: "0M+", value: "0M+" },
-    { name: "0-6M", value: "0-6M" },
-    { name: "3M+", value: "3M+" },
-    { name: "3-6M", value: "3-6M" },
-    { name: "7-10M", value: "7-10M" },
-    { name: "1Y+", value: "1Y+" },
-    { name: "3Y+", value: "3Y+" },
+    { name: "15+", value: "15+" },
+    { name: "18+", value: "18+" },
+    // { name: "50+", value: "50+" },
+    // { name: "3-6M", value: "3-6M" },
+    // { name: "7-10M", value: "7-10M" },
+    // { name: "1Y+", value: "1Y+" },
+    // { name: "3Y+", value: "3Y+" },
   ];
 
   const size = [
@@ -263,7 +254,7 @@ export default function ListProduct() {
                 </div>
               )}
             </div>
-            <div className="mb-4">
+            {/* <div className="mb-4">
               <h3
                 className="font-bold text-xl cursor-pointer mb-4"
                 onClick={toggleCapacityFilter}
@@ -297,8 +288,8 @@ export default function ListProduct() {
                   ))}
                 </div>
               )}
-            </div>
-            <div className="mb-4">
+            </div> */}
+            {/* <div className="mb-4">
               <h3
                 className="font-bold text-xl cursor-pointer mb-4"
                 onClick={toggleOriginFilter}
@@ -319,7 +310,7 @@ export default function ListProduct() {
                   ))}
                 </div>
               )}
-            </div>
+            </div> */}
             <h3
               className="font-bold text-xl cursor-pointer mb-4"
               onClick={toggleBrandFilter}
@@ -360,7 +351,7 @@ export default function ListProduct() {
                 ))}
               </div>
             )}
-            <h3
+            {/* <h3
               className="font-bold text-xl cursor-pointer mb-4"
               onClick={toggleSizeFilter}
             >
@@ -379,8 +370,8 @@ export default function ListProduct() {
                   </label>
                 ))}
               </div>
-            )}
-            <h3
+            )} */}
+            {/* <h3
               className="font-bold text-xl cursor-pointer mb-4"
               onClick={toggleWeightFilter}
             >
@@ -399,7 +390,7 @@ export default function ListProduct() {
                   </label>
                 ))}
               </div>
-            )}
+            )} */}
           </div>
 
           <div className="w-3/4 ml-4">
@@ -408,7 +399,7 @@ export default function ListProduct() {
               <div className="flex items-center space-x-4">
                 <p>Sắp xếp theo</p>
                 {[
-                  "Vị trí",
+                  // "Vị trí",
                   "Bán chạy",
                   "Giá tăng dần",
                   "Nổi bật",
