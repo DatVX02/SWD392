@@ -107,7 +107,7 @@ Chạy được chương trình tải nodejs. Link tải: https://nodejs.org/en
   "__v": 0
 }]
 
-users.json:
+# users.json:
 
 [{
   "_id": {
@@ -204,7 +204,7 @@ users.json:
   "__v": 0
 }]
 
-vouchers.json:
+# vouchers.json:
 
 [{
   "_id": {
