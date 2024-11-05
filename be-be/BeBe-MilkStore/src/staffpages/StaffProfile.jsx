@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
-import { Form, Input, Button, Popover, Card } from "antd";
+import React, { useEffect, useState } from "react";
+import { Form, Input, Button, Popover, Card, DatePicker, Select } from "antd";
 import { useNavigate } from "react-router-dom";
 import { message } from "antd";
+import dayjs from "dayjs";
 
-const StaffProfile = () => {
+const UserProfile = () => {
   const [user, setUser] = useState({});
   const [passwordPopoverVisible, setPasswordPopoverVisible] = useState(false);
   const navigate = useNavigate();
@@ -35,18 +36,22 @@ const StaffProfile = () => {
             fullName: data.fullName,
             phone_number: data.phone_number,
             email: data.email,
+            gender: data.gender,
+            dob: data.dob ? dayjs(data.dob) : null, // Convert to dayjs for DatePicker
           });
           form.setFieldsValue({
             fullName: data.fullName,
             phone_number: data.phone_number,
             email: data.email,
+            gender: data.gender,
+            dob: data.dob ? dayjs(data.dob) : null,
           });
         } else {
-          alert("Failed to fetch user data");
+          message.error("Failed to fetch user data");
         }
       } catch (error) {
         console.error("Error:", error);
-        alert("An error occurred while fetching user data");
+        message.error("An error occurred while fetching user data");
       }
     };
 
@@ -55,7 +60,7 @@ const StaffProfile = () => {
 
   const handleProfileSubmit = async (values) => {
     const accessToken = localStorage.getItem("accessToken");
-    const userId = user.id; // Ensure the user ID is stored in the user state
+    const userId = user.id;
     try {
       const response = await fetch(
         `http://localhost:5000/api/users/${userId}`,
@@ -65,7 +70,10 @@ const StaffProfile = () => {
             "Content-Type": "application/json",
             Authorization: `Bearer ${accessToken}`,
           },
-          body: JSON.stringify(values),
+          body: JSON.stringify({
+            ...values,
+            dob: values.dob ? values.dob.toISOString() : null, // Convert to ISO string for backend
+          }),
         }
       );
 
@@ -76,13 +84,13 @@ const StaffProfile = () => {
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("An error occurred while updating profile");
+      message.error("An error occurred while updating profile");
     }
   };
 
   const handlePasswordSubmit = async (values) => {
     const accessToken = localStorage.getItem("accessToken");
-    const userId = user.id; // Ensure the user ID is stored in the user state
+    const userId = user.id;
 
     try {
       const response = await fetch(
@@ -99,13 +107,36 @@ const StaffProfile = () => {
 
       if (response.ok) {
         message.success("Password changed successfully");
-        setPasswordPopoverVisible(false); // Close the popover after submitting
+        setPasswordPopoverVisible(false);
       } else {
         message.error("Failed to change password");
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("An error occurred while changing password");
+      message.error("An error occurred while changing password");
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      const accessToken = localStorage.getItem("accessToken");
+      const response = await fetch("http://localhost:5000/api/auth/logout", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+
+      if (response.ok) {
+        localStorage.clear();
+        navigate("/");
+        window.location.reload();
+      } else {
+        message.error("Failed to log out");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      message.error("An error occurred while logging out");
     }
   };
 
@@ -114,9 +145,7 @@ const StaffProfile = () => {
       <Form.Item
         name="currentPassword"
         label="Current Password"
-        rules={[
-          { required: true, message: "Please input your current password!" },
-        ]}
+        rules={[{ required: true, message: "Please input your current password!" }]}
       >
         <Input.Password />
       </Form.Item>
@@ -130,9 +159,7 @@ const StaffProfile = () => {
       <Form.Item
         name="confirmPassword"
         label="Confirm Password"
-        rules={[
-          { required: true, message: "Please confirm your new password!" },
-        ]}
+        rules={[{ required: true, message: "Please confirm your new password!" }]}
       >
         <Input.Password />
       </Form.Item>
@@ -146,7 +173,7 @@ const StaffProfile = () => {
 
   return (
     <Card className="container mx-auto my-20">
-      <h1 className="flex items-center justify-center w-full mb-10 text-2xl font-bold">
+      <h1 className="flex items-center justify-center text-2xl font-bold w-full mb-10">
         User Profile
       </h1>
       <div className="flex justify-center w-full h-auto space-x-20">
@@ -164,6 +191,16 @@ const StaffProfile = () => {
           </Form.Item>
           <Form.Item name="email" label="Email">
             <Input className="w-full" />
+          </Form.Item>
+          <Form.Item name="gender" label="Gender">
+            <Select className="w-full">
+              <Select.Option value="Male">Male</Select.Option>
+              <Select.Option value="Female">Female</Select.Option>
+              <Select.Option value="Other">Other</Select.Option>
+            </Select>
+          </Form.Item>
+          <Form.Item name="dob" label="Date of Birth">
+            <DatePicker className="w-full" />
           </Form.Item>
           <Popover
             content={changePasswordContent}
@@ -183,8 +220,17 @@ const StaffProfile = () => {
           </Form.Item>
         </Form>
       </div>
+      <div className="flex justify-center w-full h-auto">
+        <Button
+          type="primary"
+          className="mt-4 bg-red-500 text-white font-bold py-2 rounded"
+          onClick={handleLogout}
+        >
+          Đăng xuất
+        </Button>
+      </div>
     </Card>
   );
 };
 
-export default StaffProfile;
+export default UserProfile;

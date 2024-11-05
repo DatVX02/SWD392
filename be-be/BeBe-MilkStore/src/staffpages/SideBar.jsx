@@ -16,9 +16,9 @@ const { SubMenu } = Menu;
 const SideBar = () => {
   return (
     <div className="h-screen w-[15%] bg-white shadow-md sticky top-0 left-0">
-      <div className="flex items-center justify-center py-4 w-full h-32">
+      <div className="flex items-center justify-center py-4 w-full h-32 mb-16 mt-10">
         <Link to="/staff/dashboard">
-          <img src="" alt="Logo" className="h-auto w-52" />
+          <img src="/assets/images/image.jpg" alt="Logo" className="h-auto w-52" />
         </Link>
       </div>
       <Menu mode="inline" defaultSelectedKeys={["1"]} className="border-r-0">

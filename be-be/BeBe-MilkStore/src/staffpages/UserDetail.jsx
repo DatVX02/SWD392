@@ -13,7 +13,7 @@ const UserDetail = () => {
     phone_number: "",
     dob: "",
     email: "",
-    gender: "",
+    // gender: "",
   });
 
   useEffect(() => {
@@ -59,9 +59,10 @@ const UserDetail = () => {
         body: JSON.stringify({
           fullName,
           phone_number,
-          dob,
+          role,
           email,
-          gender,
+          // gender,
+          ...(newPassword && { password: newPassword }),
         }),
       });
 
@@ -112,11 +113,11 @@ const UserDetail = () => {
         <Input className="w-1/2" />
       </Form.Item>
       <Form.Item
-        label="Date of Birth"
-        name="dob"
+        label="Role"
+        name="role"
         rules={[{ required: true, message: "Please enter your date of birth" }]}
       >
-        <Input className="w-1/2" />
+        <Input className="w-1/2" readOnly />
       </Form.Item>
       <Form.Item
         label="Email"
@@ -125,13 +126,13 @@ const UserDetail = () => {
       >
         <Input className="w-1/2" />
       </Form.Item>
-      <Form.Item
+      {/* <Form.Item
         label="Gender"
         name="gender"
         rules={[{ required: true, message: "Please select your gender" }]}
       >
         <Input className="w-1/2" />
-      </Form.Item>
+      </Form.Item> */}
       <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
         <Button type="primary" htmlType="submit" className="w-1/2">
           Submit

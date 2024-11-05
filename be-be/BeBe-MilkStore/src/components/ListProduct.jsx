@@ -51,73 +51,64 @@ export default function ListProduct() {
   const toggleSizeFilter = () => setShowSizeFilter(!showSizeFilter);
   const toggleWeightFilter = () => setShowWeightFilter(!showWeightFilter);
 
-  const origin = [
-    { name: "Ba Lan", value: "Ba Lan" },
-    { name: "Hàn Quốc", value: "Hàn Quốc" },
-    { name: "Nam Phi ", value: "Nam Phi" },
-    { name: "Nhật Bản", value: "Nhật Bản" },
-    { name: "Singapore ", value: "Singapore" },
-    { name: "Thái Lan ", value: "Thái Lan" },
-    { name: "Thụy Sĩ", value: "Thụy Sĩ" },
-    { name: "Trung Quốc ", value: "Trung Quốc" },
-    { name: "Úc", value: "Úc" },
-    { name: "Việt Nam ", value: "Việt Nam" },
-  ];
+  // const origin = [
+  //   { name: "Ba Lan", value: "Ba Lan" },
+  //   { name: "Hàn Quốc", value: "Hàn Quốc" },
+  //   { name: "Nam Phi ", value: "Nam Phi" },
+  //   { name: "Nhật Bản", value: "Nhật Bản" },
+  //   { name: "Singapore ", value: "Singapore" },
+  //   { name: "Thái Lan ", value: "Thái Lan" },
+  //   { name: "Thụy Sĩ", value: "Thụy Sĩ" },
+  //   { name: "Trung Quốc ", value: "Trung Quốc" },
+  //   { name: "Úc", value: "Úc" },
+  //   { name: "Việt Nam ", value: "Việt Nam" },
+  // ];
 
   const branch = [
-    { name: "Degrees", value: "Degrees" },
-    { name: "Abbott", value: "Abbott" },
-    { name: "Anpaso", value: "Anpaso" },
-    { name: "Bio-Oil", value: "Bio-Oil" },
-    { name: "Fatz baby", value: "Fatz baby" },
-    { name: "KidsPlaza", value: "KidsPlaza" },
-    { name: "Kumanoyushi", value: "Kumanoyushi" },
-    { name: "Mamago", value: "Mamago" },
-    { name: "Medela", value: "Medela" },
-    { name: "Morinaga", value: "Morinaga" },
-    { name: "Sunmate", value: "Sunmate" },
-    { name: "Unimom", value: "Unimom" },
-    { name: "SABINA", value: "SABINA" },
+    { name: "Vieton", value: "Vieton" },
+    { name: "Yeah1", value: "Yeah1" },
+    { name: "Vũ Offical", value: "VuOffical" },
+    { name: "Mây Lang Thang", value: "Mây Lang Thang" },
   ];
 
   const age = [
-    { name: "0M+", value: "0M+" },
-    { name: "0-6M", value: "0-6M" },
-    { name: "3M+", value: "3M+" },
-    { name: "3-6M", value: "3-6M" },
-    { name: "7-10M", value: "7-10M" },
-    { name: "1Y+", value: "1Y+" },
-    { name: "3Y+", value: "3Y+" },
+    { name: "15+", value: "15+" },
+    { name: "18+", value: "18+" },
+    // { name: "50+", value: "50+" },
+    // { name: "3-6M", value: "3-6M" },
+    // { name: "7-10M", value: "7-10M" },
+    // { name: "1Y+", value: "1Y+" },
+    // { name: "3Y+", value: "3Y+" },
   ];
 
-  const size = [
-    { name: "S38", value: "S38" },
-    { name: "S40", value: "S40" },
-    { name: "S42", value: "S42" },
-    { name: "S", value: "S" },
-    { name: "M", value: "M" },
-    { name: "L", value: "L" },
-    { name: "XL", value: "XL" },
-    { name: "XXL", value: "XXL" },
-  ];
+  // const size = [
+  //   { name: "S38", value: "S38" },
+  //   { name: "S40", value: "S40" },
+  //   { name: "S42", value: "S42" },
+  //   { name: "S", value: "S" },
+  //   { name: "M", value: "M" },
+  //   { name: "L", value: "L" },
+  //   { name: "XL", value: "XL" },
+  //   { name: "XXL", value: "XXL" },
+  // ];
 
-  const weight = [
-    { name: "7g", value: "7g" },
-    { name: "20g", value: "20g" },
-    { name: "36g", value: "36g" },
-    { name: "100g", value: "100g" },
-    { name: "180g", value: "180g" },
-    { name: "216g", value: "216g" },
-    { name: "250g", value: "250g" },
-    { name: "350g", value: "350g" },
-    { name: "400g", value: "400g" },
-    { name: "450g", value: "450g" },
-    { name: "500g", value: "500g" },
-    { name: "800g", value: "800g" },
-    { name: "830g", value: "830g" },
-    { name: "900g", value: "900g" },
-    { name: "3kg", value: "3kg" },
-  ];
+  // const weight = [
+  //   { name: "7g", value: "7g" },
+  //   { name: "20g", value: "20g" },
+  //   { name: "36g", value: "36g" },
+  //   { name: "100g", value: "100g" },
+  //   { name: "180g", value: "180g" },
+  //   { name: "216g", value: "216g" },
+  //   { name: "250g", value: "250g" },
+  //   { name: "350g", value: "350g" },
+  //   { name: "400g", value: "400g" },
+  //   { name: "450g", value: "450g" },
+  //   { name: "500g", value: "500g" },
+  //   { name: "800g", value: "800g" },
+  //   { name: "830g", value: "830g" },
+  //   { name: "900g", value: "900g" },
+  //   { name: "3kg", value: "3kg" },
+  // ];
 
   useEffect(() => {
     fetch("http://localhost:5000/api/products")
@@ -263,7 +254,7 @@ export default function ListProduct() {
                 </div>
               )}
             </div>
-            <div className="mb-4">
+            {/* <div className="mb-4">
               <h3
                 className="font-bold text-xl cursor-pointer mb-4"
                 onClick={toggleCapacityFilter}
@@ -297,8 +288,8 @@ export default function ListProduct() {
                   ))}
                 </div>
               )}
-            </div>
-            <div className="mb-4">
+            </div> */}
+            {/* <div className="mb-4">
               <h3
                 className="font-bold text-xl cursor-pointer mb-4"
                 onClick={toggleOriginFilter}
@@ -319,7 +310,7 @@ export default function ListProduct() {
                   ))}
                 </div>
               )}
-            </div>
+            </div> */}
             <h3
               className="font-bold text-xl cursor-pointer mb-4"
               onClick={toggleBrandFilter}
@@ -360,7 +351,7 @@ export default function ListProduct() {
                 ))}
               </div>
             )}
-            <h3
+            {/* <h3
               className="font-bold text-xl cursor-pointer mb-4"
               onClick={toggleSizeFilter}
             >
@@ -379,8 +370,8 @@ export default function ListProduct() {
                   </label>
                 ))}
               </div>
-            )}
-            <h3
+            )} */}
+            {/* <h3
               className="font-bold text-xl cursor-pointer mb-4"
               onClick={toggleWeightFilter}
             >
@@ -399,7 +390,7 @@ export default function ListProduct() {
                   </label>
                 ))}
               </div>
-            )}
+            )} */}
           </div>
 
           <div className="w-3/4 ml-4">
@@ -408,7 +399,7 @@ export default function ListProduct() {
               <div className="flex items-center space-x-4">
                 <p>Sắp xếp theo</p>
                 {[
-                  "Vị trí",
+                  // "Vị trí",
                   "Bán chạy",
                   "Giá tăng dần",
                   "Nổi bật",

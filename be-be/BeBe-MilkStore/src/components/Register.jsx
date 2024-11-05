@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Button, Input, Checkbox } from "antd";
+import { Button, Input, Checkbox, DatePicker, Select, message } from "antd";
 import { Link, useNavigate } from "react-router-dom";
-import { message } from "antd";
+import dayjs from "dayjs";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -12,6 +12,8 @@ export default function Register() {
     email: "",
     password: "",
     confirmPassword: "",
+    dob: null,
+    gender: "",
     agreeTerms: false,
   });
 
@@ -20,6 +22,20 @@ export default function Register() {
     setFormData({
       ...formData,
       [name]: type === "checkbox" ? checked : value,
+    });
+  };
+
+  const handleDateChange = (date) => {
+    setFormData({
+      ...formData,
+      dob: date,
+    });
+  };
+
+  const handleGenderChange = (value) => {
+    setFormData({
+      ...formData,
+      gender: value,
     });
   };
 
@@ -45,6 +61,8 @@ export default function Register() {
           phone_number: formData.phone_number,
           email: formData.email,
           password: formData.password,
+          dob: formData.dob ? formData.dob.toISOString() : null,
+          gender: formData.gender,
         }),
       });
 
@@ -54,23 +72,16 @@ export default function Register() {
         navigate("/login");
       } else {
         const errorData = await response.json();
-        message.error("Registration failed");
+        message.error(errorData.message || "Registration failed");
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("An error occurred while registering");
+      message.error("An error occurred while registering");
     }
   };
 
   return (
     <div className="px-20 my-10 bg-white">
-        {/* <div className="flex justify-center items-center">
-          <img
-            className="absolute z-0 top-[180px]"
-            src="./public/assets/images/image 83.png"
-            alt="login"
-          />
-        </div> */}
       <div className="flex justify-center items-center p-16 bg-gray-100 mt-20">
         <div className="bg-white rounded-lg shadow-lg w-1/3 z-10">
           <div className="flex">
@@ -80,7 +91,7 @@ export default function Register() {
             >
               <h2 className="text-2xl font-bold text-blue-900">ĐĂNG NHẬP</h2>
             </Link>
-            <div className="w-1/2 text-center py-6 bg-yellow-400  rounded-e-md">
+            <div className="w-1/2 text-center py-6 bg-yellow-400 rounded-e-md">
               <h2 className="text-2xl font-bold text-blue-900">ĐĂNG KÝ</h2>
             </div>
           </div>
@@ -110,6 +121,23 @@ export default function Register() {
               value={formData.email}
               onChange={handleChange}
             />
+            {/* <DatePicker
+              className="mb-4 w-full"
+              placeholder="Ngày sinh"
+              size="large"
+              value={formData.dob ? dayjs(formData.dob) : null}
+              onChange={handleDateChange}
+            /> */}
+            <Select
+              className="mb-4 w-full"
+              placeholder="Giới tính"
+              size="large"
+              value={formData.gender}
+              onChange={handleGenderChange}
+            >
+              <Select.Option value="Male">Nam</Select.Option>
+              <Select.Option value="Female">Nữ</Select.Option>
+            </Select>
             <Input.Password
               className="mb-4 w-full"
               placeholder="Mật khẩu*"
@@ -142,25 +170,6 @@ export default function Register() {
             >
               ĐĂNG KÝ
             </Button>
-            {/* <div className="flex items-center my-4 w-full">
-              <div className="flex-grow border-t border-gray-300"></div>
-              <span className="mx-4 text-gray-500">Hoặc đăng nhập bằng</span>
-              <div className="flex-grow border-t border-gray-300"></div>
-            </div>
-            <Button
-              type="primary"
-              className="w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 rounded mb-10"
-              size="large"
-            >
-              GOOGLE
-            </Button>
-            <Button
-              type="primary"
-              className="w-full bg-blue-700 text-white font-bold py-2 rounded"
-              size="large"
-            >
-              FACEBOOK
-            </Button> */}
           </div>
         </div>
       </div>
