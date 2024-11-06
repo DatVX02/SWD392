@@ -389,17 +389,18 @@ export default function Payment() {
               <Form form={form} layout="vertical" onFinish={handleFormSubmit}>
                 <Form.Item name="shippingMethod" label="Phương thức vận chuyển">
                   <Radio.Group
-                    onChange={handleShippingChange}
+                    // onChange={handleShippingChange}
                     value={shippingMethod}
                   >
                     <div className="flex flex-col">
-                      <Radio value="standard">Tiêu chuẩn </Radio>
-                      <Radio value="express">Nhanh</Radio>
+                      {/* <Radio value="standard">Tiêu chuẩn </Radio> */}
+                      <Radio value="express">Online</Radio>
                       <Radio value="premium">Nhận vé tại sự kiện</Radio>
                     </div>
                   </Radio.Group>
                 </Form.Item>
                 <Divider />
+                
                 <h2 className="text-xl font-bold mb-4 text-blue-500">
                   Phương thức thanh toán
                 </h2>

@@ -32,9 +32,9 @@ const SideBar = () => {
         <Menu.Item key="3" icon={<OrderedListOutlined />}>
           <Link to="/staff/order-list"> Order List</Link>
         </Menu.Item>
-        <Menu.Item key="4" icon={<UserOutlined />}>
+        {/* <Menu.Item key="4" icon={<UserOutlined />}>
           <Link to="/staff/management-user"> Customers</Link>
-        </Menu.Item>
+        </Menu.Item> */}
         <Menu.Item key="5" icon={<DatabaseOutlined />}>
           <Link to="/staff/management-voucher">Voucher</Link>
         </Menu.Item>

@@ -179,7 +179,7 @@ const UserProfile = () => {
       <div className="flex justify-center w-full h-auto space-x-20">
         <img
           src="../assets/images/user.png"
-          className="rounded-full w-72"
+          className="rounded-full w-72 h-72"
           alt="User"
         />
         <Form form={form} initialValues={user} onFinish={handleProfileSubmit}>
@@ -196,7 +196,6 @@ const UserProfile = () => {
             <Select className="w-full">
               <Select.Option value="Male">Male</Select.Option>
               <Select.Option value="Female">Female</Select.Option>
-              <Select.Option value="Other">Other</Select.Option>
             </Select>
           </Form.Item>
           <Form.Item name="dob" label="Date of Birth">

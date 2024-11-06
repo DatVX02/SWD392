@@ -193,7 +193,7 @@ const UpdateProduct = () => {
                   className="mb-4"
                 />
               </div>
-              <div>
+              {/* <div>
                 <label className="block text-gray-700">Sale Price</label>
                 <Input
                   name="sale_price"
@@ -202,9 +202,9 @@ const UpdateProduct = () => {
                   placeholder="$"
                   className="mb-4"
                 />
-              </div>
+              </div> */}
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            {/* <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className="block text-gray-700">Discount</label>
                 <Input
@@ -219,7 +219,7 @@ const UpdateProduct = () => {
                 <label className="block text-gray-700">Discount</label>
                 <RangePicker className="w-full" />
               </div>
-            </div>
+            </div> */}
           </div>
           <div>
             <div className="mt-4">

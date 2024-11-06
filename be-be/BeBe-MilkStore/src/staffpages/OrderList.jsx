@@ -107,20 +107,20 @@ const OrderList = () => {
       render: (status) => {
         let color;
         switch (status) {
-          case "Pending":
-            color = "orange";
-            break;
+          // case "Pending":
+          //   color = "orange";
+          //   break;
           case "Processing":
             color = "blue";
             break;
-          case "Shipped":
+          // case "Shipped":
+          //   color = "green";
+          //   break;
+          // case "Delitvered":
+          //   color = "cyan";
+          //   break;
+          case "Completed":
             color = "green";
-            break;
-          case "Delivered":
-            color = "cyan";
-            break;
-          case "Cancelled":
-            color = "red";
             break;
           default:
             color = "gray";
@@ -132,6 +132,7 @@ const OrderList = () => {
       title: "Amount",
       dataIndex: "total",
       key: "amount",
+      render: (text) => `${text.toLocaleString("vi-VN")} VND`,
     },
     {
       title: "Action",
@@ -145,11 +146,11 @@ const OrderList = () => {
               </Link>
             </Menu.Item>
             <Menu.SubMenu key="changeStatus" title="Change Status">
-              <Menu.Item key="Pending">Pending</Menu.Item>
+              <Menu.Item key="Completed">Completed</Menu.Item>
               <Menu.Item key="Processing">Processing</Menu.Item>
-              <Menu.Item key="Shipped">Shipped</Menu.Item>
+              {/* <Menu.Item key="Shipped">Shipped</Menu.Item>
               <Menu.Item key="Delivered">Delivered</Menu.Item>
-              <Menu.Item key="Cancelled">Cancel</Menu.Item>
+              <Menu.Item key="Cancelled">Cancel</Menu.Item> */}
             </Menu.SubMenu>
           </Menu>
         );

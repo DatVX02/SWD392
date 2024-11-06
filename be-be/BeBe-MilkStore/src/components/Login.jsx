@@ -62,7 +62,7 @@ export default function Login() {
         />
       </div> */}
       <div className="flex justify-center items-center h-lg p-40 bg-gray-100 ">
-        <div className="bg-white rounded-lg shadow-lg w-1/3 z-10">
+        <div className="bg-white rounded-lg shadow-lg  z-10">
           <div className="flex">
             <div className="w-1/2 text-center py-6 bg-yellow-400 rounded-s-md">
               <h2 className="text-2xl font-bold text-blue-900">ĐĂNG NHẬP</h2>

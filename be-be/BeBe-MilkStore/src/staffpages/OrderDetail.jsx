@@ -78,7 +78,7 @@ const OrderDetail = () => {
     key: index.toString(),
     productName: item.productId.name,
     quantity: item.quantity,
-    total: `$${item.productId.regular_price * item.quantity}`,
+    total: `${item.productId.regular_price.toLocaleString("vi-VN")} VND`,
   }));
 
   return (
@@ -148,7 +148,7 @@ const OrderDetail = () => {
           <div className="w-full md:w-1/4">
             <div className="flex justify-between py-1">
               <span>Subtotal:</span>
-              <span>${total}</span>
+              <span>{total.toLocaleString("vi-VN")} VND</span>
             </div>
             {/* Các thông tin khác về tổng tiền, thuế, giảm giá, phí vận chuyển */}
           </div>

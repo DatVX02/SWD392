@@ -15,7 +15,7 @@ import {
 } from "antd";
 import { StarOutlined } from "@mui/icons-material";
 import Information from "./Information";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../features/cart/CartSlice";
 
@@ -37,7 +37,7 @@ export default function ProductDetail() {
   const { id } = useParams();
   const [ratingBreakdown, setRatingBreakdown] = useState([]);
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const toggleReadMore = () => {
     setIsExpanded(!isExpanded);
   };
@@ -79,6 +79,11 @@ export default function ProductDetail() {
   const handleAddToCart = async () => {
     try {
       const accessToken = localStorage.getItem("accessToken");
+      if (!accessToken) {
+        message.warning("Bạn cần đăng nhập để thêm vào giỏ hàng");
+        navigate("/login");
+        return;
+      }
       dispatch(
         addToCart({
           productId: {
@@ -257,7 +262,7 @@ export default function ProductDetail() {
               >
                 Chọn mua
               </Button>
-              
+
             </div>
             <div className="mt-4">
               <p className="text-gray-500">Nơi lấy: {location}</p>
@@ -436,7 +441,7 @@ export default function ProductDetail() {
                   <Rate disabled defaultValue={5} className="ml-2" />
                 </div>
                 <p className="text-gray-500">
-                  Sự kiện này hay 
+                  Sự kiện này hay
                 </p>
                 <p className="text-gray-400 text-sm">0 lượt thích 04-07-2023</p>
               </div>
