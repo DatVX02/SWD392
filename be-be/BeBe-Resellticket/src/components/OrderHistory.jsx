@@ -84,6 +84,7 @@ const OrderHistory = () => {
       title: "Total Price",
       dataIndex: "total",
       key: "totalPrice",
+      render: (text) => `${text.toLocaleString("vi-VN")} VND`,
     },
     {
       title: "Action",
@@ -100,16 +101,16 @@ const OrderHistory = () => {
     switch (status) {
       case "Completed":
         return "text-green-500";
-      case "Pending":
-        return "text-yellow-500";
+      // case "Pending":
+      //   return "text-yellow-500";
       case "Processing":
         return "text-blue-500";
-      case "Cancelled":
-        return "text-red-500";
-      case "Delivered":
-        return "text-purple-500";
-      case "Delivering":
-        return "text-orange-500";
+      // case "Cancelled":
+      //   return "text-red-500";
+      // case "Delivered":
+      //   return "text-purple-500";
+      // case "Delivering":
+      //   return "text-orange-500";
       default:
         return "";
     }

@@ -73,7 +73,7 @@ export default function OrderDetails() {
     key: index.toString(),
     productName: item.productId.name,
     quantity: item.quantity,
-    total: `${item.productId.regular_price * item.quantity}VND`,
+    total: `${(item.productId.regular_price * item.quantity).toLocaleString("vi-VN")} VND`,
   }));
 
   let voucherInfo = null;
@@ -96,7 +96,7 @@ export default function OrderDetails() {
 
         <div className="mt-4 p-4 bg-blue-100 rounded-md">
           <p className="text-lg font-bold">
-            Tổng tiền đơn hàng: {orderDetails.total} VND
+            Tổng tiền đơn hàng: {(orderDetails.total).toLocaleString("vi-VN")} VND
           </p>
           {voucherInfo && (
             <p className="text-lg font-bold mb-2">
