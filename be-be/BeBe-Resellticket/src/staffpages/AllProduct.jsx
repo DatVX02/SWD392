@@ -35,6 +35,7 @@ const ProductList = () => {
       title: "Price",
       dataIndex: "regular_price",
       key: "price",
+      render: (text) => `${text.toLocaleString("vi-VN")} VND`,
     },
     {
       title: "Available",
